@@ -1,8 +1,12 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+{% block title %}Songs{% endblock %}
 
 {% block content %}
 
-  <h1>The songs Index file is in songs/templates/songs_index.html</h1>
+  <h1 class="jumbotron">The sick tracks</h1>
+
+  {% for song in songs %}
+    {{ song.track_name}}
+  {% endfor %}
 
 {% endblock %}
