@@ -13,4 +13,12 @@ def index(request):
 
 def new(request):
     form = NewSongForm()
-    return render(request, 'songs_new.html', {'form':form})
+    if request.method == 'POST':
+        form = NewSongForm(request.POST)
+        if form.is_valid():
+            form.save(commit=True)
+            return index(request)
+        else:
+            print('Error: form invalid')
+    else:
+        return render(request, 'songs_new.html', {'form':form})
