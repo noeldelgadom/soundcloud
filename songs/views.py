@@ -8,7 +8,7 @@ def home(request):
     return render(request, 'home.html')
 
 def index(request):
-    song_list = Song.objects.order_by('track_name')
+    song_list = Song.objects.all()
     return render(request, 'songs_index.html', {'songs': song_list})
 
 def new(request):
